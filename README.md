@@ -1,3 +1,8 @@
+# About This Fork
+`golang.org` is unfortunately blocked in our network environment. Using the repo mirror feature of `glide` to rewriting `golang.org` to `github.com`, can solve half of the problem. The other half of the problem is the mirroring solution doesn't work well with subpackages, for example `golang.org/x/net/context`. Because `glide` needs the `go-get=1` trick to determine what is its parent package, even we specified the mirror repo for the subpackage.
+
+The simplest way to make `glide` to skip the `go-get=1` trick is to change the `vcsList` variable in [`util/util.go`](util/util.go). And this is the only change this fork made (please check [this commit](https://github.com/zjx20/glide/commit/08e311af22788b71217051b0d373be0de2b51b5f)).
+
 # Glide: Vendor Package Management for Golang
 
 ![glide logo](https://glide.sh/assets/logo-small.png)
